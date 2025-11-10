@@ -1,46 +1,58 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HumanMade OS</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400&family=Jura:wght@400;700&display=swap" rel="stylesheet">
     <style>
       body {
-        background-color: #0A0F1A;
-        color: #E0E0E0;
-        font-family: 'monospace', sans-serif;
+        font-family: 'Jura', sans-serif;
+        background-color: #000000; /* Black */
+        color: #F8F8F8; /* Ivory White / Off-white */
         overflow: hidden;
       }
-      @keyframes pulse {
-        0%, 100% {
-          opacity: 0.6;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 0.8;
-          transform: scale(1.05);
-        }
+
+      @keyframes pulse-cyan {
+        0%, 100% { opacity: 0.1; transform: scale(1); }
+        50% { opacity: 0.2; transform: scale(1.05); }
       }
-      .pulse-cyan {
-        animation: pulse 8s ease-in-out infinite;
+      .animate-pulse-cyan {
+        animation: pulse-cyan 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
       }
-      .pulse-fuchsia {
-        animation: pulse 10s ease-in-out infinite 2s;
+
+      @keyframes pulse-fuchsia {
+        0%, 100% { opacity: 0.15; transform: scale(1); }
+        50% { opacity: 0.05; transform: scale(0.95); }
       }
-       .window-drag-handle {
-        cursor: move;
+      .animate-pulse-fuchsia {
+        animation: pulse-fuchsia 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+
+      .font-roboto-mono {
+        font-family: 'Roboto Mono', monospace;
+      }
+
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
       }
     </style>
   <script type="importmap">
 {
   "imports": {
-    "recharts": "https://aistudiocdn.com/recharts@^3.4.1",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "react": "https://aistudiocdn.com/react@^19.2.0"
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "recharts": "https://aistudiocdn.com/recharts@^3.4.1"
   }
 }
 </script>
@@ -48,6 +60,6 @@
 </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+  <script type="module" src="/index.tsx"></script>
+</body>
 </html>
